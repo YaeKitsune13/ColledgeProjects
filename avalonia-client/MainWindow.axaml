@@ -1,0 +1,34 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaClient.MainWindow"
+        Title="College — C# API (MySQL)"
+        Width="900" Height="620">
+
+  <Grid RowDefinitions="Auto,Auto,*,Auto,Auto" Margin="16">
+
+    <!-- выбор таблицы -->
+    <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="8">
+      <ComboBox x:Name="ResourceBox" Width="220" SelectionChanged="OnResourceChanged" />
+      <Button Content="Обновить" Click="OnRefresh" />
+    </StackPanel>
+
+    <!-- список записей -->
+    <TextBlock Grid.Row="1" x:Name="HeaderText" Margin="0,12,0,4" FontWeight="SemiBold" />
+    <ListBox Grid.Row="2" x:Name="RowsList" SelectionChanged="OnRowSelected" />
+
+    <!-- форма -->
+    <StackPanel Grid.Row="3" Margin="0,12,0,0" Spacing="8">
+      <TextBlock x:Name="FormTitle" FontWeight="SemiBold" />
+      <WrapPanel x:Name="FormPanel" />
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <Button Content="Сохранить" Click="OnSave" />
+        <Button Content="Новая запись" Click="OnNew" />
+        <Button Content="Удалить" Click="OnDelete" />
+      </StackPanel>
+    </StackPanel>
+
+    <!-- ошибки -->
+    <TextBlock Grid.Row="4" x:Name="ErrorText" Margin="0,8,0,0"
+               Foreground="#B42318" TextWrapping="Wrap" />
+  </Grid>
+</Window>
