@@ -11,5 +11,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:10.0
 WORKDIR /app
 COPY --from=build /app .
 
+ENV ASPNETCORE_HTTP_PORTS=80
 EXPOSE 80
 ENTRYPOINT ["dotnet", "csharp-api.dll"]

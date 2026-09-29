@@ -45,7 +45,7 @@ services:
     environment:
       - DB_HOST=firebird
       - DB_PORT=3050
-      - DB_NAME=college.fdb
+      - DB_NAME=/var/lib/firebird/data/college.fdb
       - DB_USER=${FIREBIRD_USER}
       - DB_PASSWORD=${FIREBIRD_PASSWORD}
     depends_on:
@@ -63,7 +63,6 @@ services:
       - "5000:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__Default=Server=mysql;Port=3306;Database=${MYSQL_DATABASE};User=${MYSQL_USER};Password=${MYSQL_PASSWORD}
     depends_on:
       - mysql
     networks:
